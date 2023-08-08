@@ -27,17 +27,11 @@ const cosasQueAprendimos = [
 
 function main() {
   let elementosDeLista = document.querySelectorAll('.lista li');
-
-  console.log(elementosDeLista);
+  elementosDeLista.forEach((elemento) => {
+    elemento.remove();
+  })
 
   let listaSup = document.querySelector('.lista');
-  elementosDeLista.forEach((elemento) => {
-    listaSup.removeChild(elemento);
-  });
-
-  // for(let i=0;i<elementosDeLista.length;i++){
-  //   document.querySelector('.lista').removeChild(elementosDeLista[i]);
-  // }
 
   let nuevoLi;
   cosasQueAprendimos.forEach((temaActual) => {
@@ -46,7 +40,6 @@ function main() {
     nuevoLi.innerText = temaActual.tema;
     listaSup.appendChild(nuevoLi);
   })
-  
 }
 
 main();
