@@ -25,21 +25,25 @@ const cosasQueAprendimos = [
   },
 ];
 
-function main() {
-  let elementosDeLista = document.querySelectorAll('.lista li');
-  elementosDeLista.forEach((elemento) => {
+function eliminarElementos(arrayAEliminar){
+  arrayAEliminar.forEach((elemento) => {
     elemento.remove();
   })
+}
 
-  let listaSup = document.querySelector('.lista');
-
+function agregarALista(listaUsada, arrayAAgregar){
   let nuevoLi;
-  cosasQueAprendimos.forEach((temaActual) => {
+  arrayAAgregar.forEach((elementoActual) => {
     nuevoLi = document.createElement("li");
-    nuevoLi.className = temaActual.class;
-    nuevoLi.innerText = temaActual.tema;
-    listaSup.appendChild(nuevoLi);
+    nuevoLi.className = elementoActual.class;
+    nuevoLi.innerText = elementoActual.tema;
+    listaUsada.appendChild(nuevoLi);
   })
+}
+
+function main() {
+  eliminarElementos(document.querySelectorAll('.lista li'));
+  agregarALista(document.querySelector('.lista'), cosasQueAprendimos);
 }
 
 main();
